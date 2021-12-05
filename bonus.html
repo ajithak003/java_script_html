@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="">
+        <h3>enter your basic salary : </h3>
+    </label> 
+    <input type="text" id="basic"> <br><br>
+    <button type="button"  onclick="Bonus()">colculate bonus</button>
+    <br><br>
+   <!-- <input type="text" id="bonus"> -->
+   <p id="bonus"></p>
+
+</body>
+
+
+
+<script>
+
+
+    //const n = prompt("enter your basic salary : ");
+
+
+    //document.write("your bonus amount is : "+Bonus(n));
+
+    
+    function Bonus() {
+
+        var basic = document.getElementById("basic").value;
+        var bonusAmt;
+        if (basic > 20000) {
+
+            bonusAmt = (basic / 100) * 19;
+            // document.write(bonusAmt);
+        }
+        else {
+            bonusAmt = (basic / 100) * 18;
+            // document.write(bonusAmt)
+        }
+        document.getElementById("bonus").innerHTML = ("your bonus amount is : " + bonusAmt);
+    }
+    document.getElementById("basic")
+    .addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+           Bonus();
+        }
+    });
+</script>
+
+</html>

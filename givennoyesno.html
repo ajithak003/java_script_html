@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>given no presend or absend</title>
+</head>
+<body>
+     <label for="" style="color: steelblue;"><h2>Input Box</h2></label>
+    <input type="text" id="text" placeholder="enter the numbers"> &nbsp;<br><br><br><br>
+
+    <label for="" style="color: tomato;"><h2>Function Buttons : </h2></label>
+    <button type="button" onclick="givenNo()">click to find</button> &nbsp;&nbsp;&nbsp;
+    
+    <button type="button" onclick="sortAssending()">click to assending</button>&nbsp;&nbsp;&nbsp;
+
+    <button type="button" onclick="sortDesending()">click to dessending</button> &nbsp;&nbsp;&nbsp;
+
+    <button type="button" onclick="maximum()">click to find maximum </button> &nbsp;&nbsp;&nbsp;
+
+    <button type="button" onclick="minimum()"> click to fin minimum</button>
+    <br><br>
+
+    <button type="button" onclick="oddDigidSumAndProduct()">odd digid sum & product</BUtton>&nbsp;&nbsp;&nbsp;
+    <button type="button" onclick="interChange()" disabled>inter change</button>   
+
+<br>
+<br>
+<br> 
+<label for="" style="color: springgreen;"><h2>Output Box : </h2></label>
+    <input type="text" name="" id="res">
+    <!-- <p id="res"></p> -->
+    
+</body>
+
+
+<script>
+    function givenNo() {
+
+        let n = prompt("enter the checking no ");
+        let str = document.getElementById("text").value;
+          let arr = str.split(",");
+          let boo = false;
+          
+          for(let i=0; i<arr.length; i++){
+
+            arr[i]=parseInt(arr[i]);
+
+            if(n == arr[i]){
+                boo = true;
+                break;
+            }
+        }
+
+        if(boo==true){
+            document.getElementById("res").value="yes";
+        }
+            else{
+            document.getElementById("res").value="no";
+            }
+
+        // let value = arr.includes(n);
+        // document.getElementById("res").value=value;
+
+          
+        }
+
+        function sortAssending() {
+
+           let str = document.getElementById("text").value;
+           let arr = str.split(',');
+
+           for(let i=0; i<arr.length; i++){
+               arr[i]=parseInt(arr[i]);
+}   
+          arr.sort(function(a,b){return (a-b)});
+          
+           document.getElementById("res").value=arr;    
+           
+
+
+        }
+
+ function sortDesending() {
+
+let str = document.getElementById("text").value;
+let arr = str.split(',');
+for(let i=0; i<arr.length; i++){
+    arr[i]= parseInt(arr[i]);
+}
+arr.sort(function(a,b){return (b-a)});
+document.getElementById("res").value=arr;    
+
+}
+
+function maximum(){
+let str = document.getElementById("text").value;
+let arr = str.split(",");
+
+ let maxi = Math.max.apply(null,arr);
+ document.getElementById("res").value=maxi;
+}
+
+function minimum(){
+    let str = document.getElementById("text").value;
+    let arr = str.split(",");
+    let min = Math.min.apply(null,arr);
+    document.getElementById("res").value=min;
+}
+
+function oddDigidSumAndProduct(){
+   
+    let str = document.getElementById("text").value;
+    let arr = str.split(',');
+    let sum=0,product=1;
+    for(let i=0; i<arr.length; i++){
+        arr[i]=parseInt(arr[i]);
+
+        if(arr[i]%2 != 0)
+        {
+          sum=sum+arr[i];
+          product=product*arr[i];
+        }
+
+        
+    }
+    document.getElementById("res").value="sum"+sum+"   product"+product;
+}
+
+function interChange(){
+   let str= document.getElementById("text").value;
+    let arr1 = str.split(',');
+    
+    
+    let interch=prompt("please enter the interchange positions");
+    let arr2 = interch.split(',');
+    
+      for(let i=0; i<arr1.length; i++){
+        arr1[i]=parseInt(arr1[i]);
+    }
+    console.log(arr1);
+    for(let i=0; i<arr2.length; i++){
+        arr2[i]=parseInt(arr2[i]);
+    }
+    console.log(arr2);
+    let arr3 = [];
+    arr3.length=arr2.length;
+    
+    for (let i=0;arr1.length; i++){
+    
+    arr3[arr2[i]]=arr1[i];
+
+    }
+    console.log(arr3);
+
+     document.getElementById("res").value=arr3;
+}
+</script>
+</html> 
